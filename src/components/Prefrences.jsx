@@ -20,7 +20,7 @@ const Prefrences = (apikey) => {
             setSuggestions([]);
           }
         })
-        .catch((error) => alert("Error:", error));
+        .catch((error) => console.log("Error:", error));
     }
   }, [genre, year, apikey]);
 
