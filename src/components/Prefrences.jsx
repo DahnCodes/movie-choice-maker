@@ -18,7 +18,6 @@ const Prefrences = (apikey) => {
             setLoading(false);
           } else {
             setSuggestions([]);
-            setLoading(true);
           }
         })
         .catch((error) => alert("Error:", error));
