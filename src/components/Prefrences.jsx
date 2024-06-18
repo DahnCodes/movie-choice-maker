@@ -5,22 +5,22 @@ const Prefrences = (apikey) => {
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (genre && year) {
-        setLoading(true)
+      setLoading(true);
       fetch(` http://www.omdbapi.com/?s=${genre}&y=${year}&apikey=9a623030`)
         .then((res) => res.json())
         .then((data) => {
-            if (data.Response === "True") {
-                setSuggestions(data.Search);
-                setLoading(false)
-                } else {
-                    setSuggestions([]);
-                setLoading(false)
-                    }
-                    })
+          if (data.Response === "True") {
+            setSuggestions(data.Search);
+            setLoading(false);
+          } else {
+            setSuggestions([]);
+            setLoading(true);
+          }
+        })
         .catch((error) => alert("Error:", error));
     }
   }, [genre, year, apikey]);
